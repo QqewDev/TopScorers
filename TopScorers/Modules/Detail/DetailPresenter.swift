@@ -6,6 +6,7 @@
 //
 
 protocol DetailPresenterProtocol: AnyObject {
+    func setPlayer(_ player: Response)
 }
 
 class DetailPresenter {
@@ -20,4 +21,7 @@ class DetailPresenter {
 }
 
 extension DetailPresenter: DetailPresenterProtocol {
+    func setPlayer(_ player: Response) {
+      view?.showPlayerDetail(for: player)
+    }
 }

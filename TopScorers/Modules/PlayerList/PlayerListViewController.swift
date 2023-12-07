@@ -55,7 +55,8 @@ private extension PlayerListViewController {
 
 extension PlayerListViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
+      let selectedPlayer = playersList[indexPath.row]
+      presenter?.showPlayerDetail(for: selectedPlayer)
     }
 }
 

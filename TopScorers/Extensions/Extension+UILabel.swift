@@ -13,4 +13,8 @@ extension UIFont {
     static func headline() -> UIFont {
         return UIFont.preferredFont(forTextStyle: .headline)
     }
+
+    static func body() -> UIFont {
+        return UIFont.preferredFont(forTextStyle: .body)
+    }
 }

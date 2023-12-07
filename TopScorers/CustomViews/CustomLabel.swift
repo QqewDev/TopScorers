@@ -11,11 +11,11 @@ import UIKit
 
 final class CustomLabel: UILabel {
 
-    init(textColor: UIColor) {
+    init(textColor: UIColor, fontName: UIFont) {
         super.init(frame: .zero)
         self.textColor = textColor
         numberOfLines = 0
-        font = UIFont.headline()
+        font = fontName
     }
 
     required init?(coder: NSCoder) {

@@ -7,6 +7,7 @@
 
 protocol PlayerListPresenterProtocol: AnyObject {
     func viewDidLoad()
+    func showPlayerDetail(for player: Response)
 }
 
 class PlayerListPresenter {
@@ -21,6 +22,10 @@ class PlayerListPresenter {
 }
 
 extension PlayerListPresenter: PlayerListPresenterProtocol {
+    func showPlayerDetail(for player: Response) {
+        router.openDetailView(for: player)
+    }
+    
     func viewDidLoad() {
         interactor.fetchData { [weak self] result in
             switch result {

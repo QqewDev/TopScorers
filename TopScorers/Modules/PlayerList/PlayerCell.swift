@@ -19,9 +19,9 @@ class PlayerCell: UITableViewCell {
         return iv
     }()
 
-    private let nameLabel = CustomLabel(textColor: .label)
-    private let ageLabel = CustomLabel(textColor: .label)
-    private let scoreLabel = CustomLabel(textColor: .label)
+    private let nameLabel =  CustomLabel(textColor: .label, fontName: UIFont.headline())
+    private let ageLabel =  CustomLabel(textColor: .label, fontName: UIFont.headline())
+    private let scoreLabel =  CustomLabel(textColor: .label, fontName: UIFont.headline())
     private var stackView = UIStackView()
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
