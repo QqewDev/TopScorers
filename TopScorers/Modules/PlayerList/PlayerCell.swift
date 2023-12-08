@@ -12,17 +12,17 @@ import AlamofireImage
 
 class PlayerCell: UITableViewCell {
 
-    private let playerPhoto: UIImageView = {
+    private lazy var playerPhoto: UIImageView = {
         let iv = UIImageView()
-        iv.contentMode = .scaleAspectFill
+        iv.contentMode = .scaleAspectFit
         iv.clipsToBounds = true
         return iv
     }()
 
-    private let nameLabel =  CustomLabel(textColor: .label, fontName: UIFont.headline())
-    private let ageLabel =  CustomLabel(textColor: .label, fontName: UIFont.headline())
-    private let scoreLabel =  CustomLabel(textColor: .label, fontName: UIFont.headline())
-    private var stackView = UIStackView()
+    private lazy var nameLabel =  CustomLabel(textColor: .label, fontName: UIFont.headline())
+    private lazy var ageLabel =  CustomLabel(textColor: .label, fontName: UIFont.headline())
+    private lazy var scoreLabel =  CustomLabel(textColor: .label, fontName: UIFont.headline())
+    private lazy var stackView = UIStackView()
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -32,6 +32,11 @@ class PlayerCell: UITableViewCell {
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+    }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        playerPhoto.layer.cornerRadius = playerPhoto.frame.size.height / 2
     }
 
     private func setupUI(){
@@ -71,10 +76,5 @@ class PlayerCell: UITableViewCell {
         nameLabel.text = nil
         ageLabel.text = nil
         scoreLabel.text = nil
-    }
-
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        playerPhoto.layer.cornerRadius = playerPhoto.frame.size.height / 2
     }
 }

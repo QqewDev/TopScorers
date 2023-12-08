@@ -16,9 +16,11 @@
 		460949A92B1FA658001C8499 /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460949A82B1FA658001C8499 /* Endpoints.swift */; };
 		460949AC2B1FAAFE001C8499 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 460949AB2B1FAAFE001C8499 /* Alamofire */; };
 		460949AE2B20DCF9001C8499 /* PlayerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460949AD2B20DCF9001C8499 /* PlayerCell.swift */; };
-		460949BA2B20DE18001C8499 /* Extension+UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460949B72B20DE18001C8499 /* Extension+UILabel.swift */; };
+		460949BA2B20DE18001C8499 /* Extension+UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460949B72B20DE18001C8499 /* Extension+UIFont.swift */; };
 		460949BB2B20DE18001C8499 /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460949B92B20DE18001C8499 /* CustomLabel.swift */; };
 		460949BE2B20E5DF001C8499 /* AlamofireImage in Frameworks */ = {isa = PBXBuildFile; productRef = 460949BD2B20E5DF001C8499 /* AlamofireImage */; };
+		4630C7262B237DA80008AE2C /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4630C7252B237DA80008AE2C /* CustomTextField.swift */; };
+		4630C7282B238A250008AE2C /* PlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4630C7272B238A250008AE2C /* PlaceholderView.swift */; };
 		463CB23F2B1F781800E3A6E4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463CB23E2B1F781800E3A6E4 /* AppDelegate.swift */; };
 		463CB2412B1F781800E3A6E4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463CB2402B1F781800E3A6E4 /* SceneDelegate.swift */; };
 		463CB2482B1F781900E3A6E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 463CB2472B1F781900E3A6E4 /* Assets.xcassets */; };
@@ -40,8 +42,10 @@
 		4609499F2B1F8146001C8499 /* DetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInteractor.swift; sourceTree = "<group>"; };
 		460949A82B1FA658001C8499 /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
 		460949AD2B20DCF9001C8499 /* PlayerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCell.swift; sourceTree = "<group>"; };
-		460949B72B20DE18001C8499 /* Extension+UILabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+UILabel.swift"; sourceTree = "<group>"; };
+		460949B72B20DE18001C8499 /* Extension+UIFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+UIFont.swift"; sourceTree = "<group>"; };
 		460949B92B20DE18001C8499 /* CustomLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
+		4630C7252B237DA80008AE2C /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		4630C7272B238A250008AE2C /* PlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderView.swift; sourceTree = "<group>"; };
 		463CB23B2B1F781800E3A6E4 /* TopScorers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TopScorers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		463CB23E2B1F781800E3A6E4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		463CB2402B1F781800E3A6E4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -86,7 +90,7 @@
 		460949B62B20DE18001C8499 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				460949B72B20DE18001C8499 /* Extension+UILabel.swift */,
+				460949B72B20DE18001C8499 /* Extension+UIFont.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -95,6 +99,8 @@
 			isa = PBXGroup;
 			children = (
 				460949B92B20DE18001C8499 /* CustomLabel.swift */,
+				4630C7252B237DA80008AE2C /* CustomTextField.swift */,
+				4630C7272B238A250008AE2C /* PlaceholderView.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -124,17 +130,17 @@
 				463CB2552B1F787200E3A6E4 /* API */,
 				463CB2672B1F789100E3A6E4 /* Application */,
 				463CB2682B1F789B00E3A6E4 /* Resources */,
-				463CB2522B1F786100E3A6E4 /* Models */,
+				463CB2522B1F786100E3A6E4 /* Entities  */,
 			);
 			path = TopScorers;
 			sourceTree = "<group>";
 		};
-		463CB2522B1F786100E3A6E4 /* Models */ = {
+		463CB2522B1F786100E3A6E4 /* Entities  */ = {
 			isa = PBXGroup;
 			children = (
 				463CB2532B1F786100E3A6E4 /* Player.swift */,
 			);
-			path = Models;
+			path = "Entities ";
 			sourceTree = "<group>";
 		};
 		463CB2552B1F787200E3A6E4 /* API */ = {
@@ -240,6 +246,7 @@
 				460949A52B1FA335001C8499 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				460949AA2B1FAAFE001C8499 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				460949BC2B20E5DF001C8499 /* XCRemoteSwiftPackageReference "AlamofireImage" */,
+				4630C71C2B2240370008AE2C /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = 463CB23C2B1F781800E3A6E4 /* Products */;
 			projectDirPath = "";
@@ -272,10 +279,11 @@
 				463CB2542B1F786100E3A6E4 /* Player.swift in Sources */,
 				463CB2572B1F787200E3A6E4 /* ApiManager.swift in Sources */,
 				460949A22B1F8146001C8499 /* DetailRouter.swift in Sources */,
+				4630C7262B237DA80008AE2C /* CustomTextField.swift in Sources */,
 				460949A92B1FA658001C8499 /* Endpoints.swift in Sources */,
 				463CB2622B1F788300E3A6E4 /* PlayerListViewController.swift in Sources */,
 				463CB23F2B1F781800E3A6E4 /* AppDelegate.swift in Sources */,
-				460949BA2B20DE18001C8499 /* Extension+UILabel.swift in Sources */,
+				460949BA2B20DE18001C8499 /* Extension+UIFont.swift in Sources */,
 				460949A42B1F8146001C8499 /* DetailInteractor.swift in Sources */,
 				460949AE2B20DCF9001C8499 /* PlayerCell.swift in Sources */,
 				463CB2642B1F788300E3A6E4 /* PlayerListRouter.swift in Sources */,
@@ -285,6 +293,7 @@
 				463CB2412B1F781800E3A6E4 /* SceneDelegate.swift in Sources */,
 				460949A12B1F8146001C8499 /* DetailPresenter.swift in Sources */,
 				460949A32B1F8146001C8499 /* DetailViewController.swift in Sources */,
+				4630C7282B238A250008AE2C /* PlaceholderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -523,6 +532,14 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 4.3.0;
+			};
+		};
+		4630C71C2B2240370008AE2C /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.44.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

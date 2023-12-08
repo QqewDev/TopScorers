@@ -8,7 +8,7 @@
 import Foundation
 
 protocol PlayerListInteractorProtocol: AnyObject {
-    func fetchData(completion: @escaping (Result<[Response], Error>) -> Void)
+    func fetchData(for season: String, completion: @escaping (Result<[Response], Error>) -> Void)
 }
 
 class PlayerListInteractor {
@@ -23,8 +23,8 @@ class PlayerListInteractor {
 }
 
 extension PlayerListInteractor: PlayerListInteractorProtocol {
-    func fetchData(completion: @escaping (Result<[Response], Error>) -> Void) {
-        self.apiManager.retrievePlayerData { result in
+    func fetchData(for season: String, completion: @escaping (Result<[Response], Error>) -> Void) {
+        self.apiManager.retrievePlayerData(for: season) { result in
             switch result {
             case .success(let data):
                 completion(.success(data.response))

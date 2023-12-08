@@ -44,6 +44,26 @@ class DetailViewController: UIViewController {
         return view
     }()
 
+    private lazy var favoriteButton: UIButton = {
+        let btn = UIButton()
+        let configuration = UIImage.SymbolConfiguration(pointSize: 40)
+        btn.setImage(UIImage(systemName: "heart.fill", withConfiguration: configuration), for: .normal)
+        btn.imageView?.contentMode = .scaleAspectFit
+        btn.tintColor = .gray
+        btn.addTarget(self, action: #selector(favButtonTapped), for: .touchUpInside)
+        return btn
+    }()
+    
+    @objc private func favButtonTapped(){
+        isFavorite.toggle()
+        if isFavorite {
+            favoriteButton.tintColor = .systemRed
+        } else {
+            favoriteButton.tintColor = .gray
+        }
+    }
+
+    private var isFavorite: Bool = false
 
     // MARK: - View lifecycle
     override func viewDidLoad() {
@@ -68,7 +88,7 @@ private extension DetailViewController {
     }
 
     private func setupViews(){
-        [playerPhoto, playerName, playerAge, playerBirthDate, playerHeight, playerWeight, playerTotalScore].forEach { item in
+        [playerPhoto, playerName, playerAge, playerBirthDate, playerHeight, playerWeight, playerTotalScore, favoriteButton].forEach { item in
             containerView.addSubview(item)
         }
         view.addSubview(containerView)
@@ -116,6 +136,12 @@ private extension DetailViewController {
             make.top.equalTo(playerHeight.snp.bottom).offset(10)
             make.leading.equalTo(playerName.snp.leading)
         }
+
+        favoriteButton.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
+            make.size.equalTo(40)
+        }
     }
 
     private func setBackground(){
@@ -137,7 +163,7 @@ private extension DetailViewController {
         let imageView = UIImageView()
         imageView.image = UIImage(systemName: "soccerball")
         imageView.frame = frame
-        imageView.tintColor = .label.withAlphaComponent(0.4)
+        imageView.tintColor = .label
         imageView.contentMode = .scaleAspectFit
         return imageView
     }

@@ -6,6 +6,7 @@
 //
 
 protocol DetailInteractorProtocol: AnyObject {
+    
 }
 
 class DetailInteractor: DetailInteractorProtocol {

@@ -29,7 +29,7 @@ struct Player: Decodable {
     let height, weight: String
     let photo: String
 }
-
+  
 // MARK: Birth
 struct Birth: Decodable {
     let date: String
@@ -54,18 +54,16 @@ extension Birth {
             return date
         }
 
-        dateFormatter.dateFormat = "dd MMMM yyyy" // Base format
-
         let day = Calendar.current.component(.day, from: date)
         switch day {
         case 1, 21, 31:
-            dateFormatter.dateFormat = "dd'st' 'of' MMMM, yyyy"
+            dateFormatter.dateFormat = "d'st' 'of' MMMM, yyyy"
         case 2, 22:
-            dateFormatter.dateFormat = "dd'nd' 'of' MMMM, yyyy"
+            dateFormatter.dateFormat = "d'nd' 'of' MMMM, yyyy"
         case 3, 23:
-            dateFormatter.dateFormat = "dd'rd' 'of' MMMM, yyyy"
+            dateFormatter.dateFormat = "d'rd' 'of' MMMM, yyyy"
         default:
-            dateFormatter.dateFormat = "dd'th' 'of' MMMM, yyyy"
+            dateFormatter.dateFormat = "d'th' 'of' MMMM, yyyy"
         }
 
         return dateFormatter.string(from: date)
