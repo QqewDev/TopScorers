@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 
 protocol DetailViewProtocol: AnyObject {
-    func showPlayerDetail(for data: Response)
+    func showPlayerDetail(for viewModel: PlayerDetailViewModel)
 }
 
 class DetailViewController: UIViewController {
@@ -29,6 +29,8 @@ class DetailViewController: UIViewController {
     private lazy var playerHeight =  CustomLabel(textColor: .label, fontName: UIFont.body())
     private lazy var playerWeight =  CustomLabel(textColor: .label, fontName: UIFont.body())
     private lazy var playerTotalScore =  CustomLabel(textColor: .label, fontName: UIFont.body())
+    private lazy var placeholder = UIImage(systemName: "figure.soccer")
+
 
     private lazy var containerView: UIView = {
         let view = UIView()
@@ -171,15 +173,17 @@ private extension DetailViewController {
 
 // MARK: - DetailViewProtocol
 extension DetailViewController: DetailViewProtocol {
-    func showPlayerDetail(for data: Response) {
-        playerName.text = "Name: \(data.player.name)"
-        playerAge.text = "Age: \(data.player.age) y.o."
-        playerBirthDate.text = "Birth date: \(data.player.birth.formattedDate())"
-        playerHeight.text = "Player height: \(data.player.height)"
-        playerWeight.text = "Player weight: \(data.player.weight)"
-        playerTotalScore.text = "Score: \(data.statistics[0].goals.total) goals"
-        let url = URL(string: data.player.photo)
-        let placeholder = UIImage(systemName: "figure.soccer")
-        playerPhoto.af.setImage(withURL: url!, placeholderImage: placeholder)
+    func showPlayerDetail(for viewModel: PlayerDetailViewModel) {
+        playerName.text = viewModel.name
+        playerAge.text = viewModel.age
+        playerBirthDate.text = viewModel.birthDate
+        playerHeight.text = viewModel.height
+        playerWeight.text = viewModel.weight
+        playerTotalScore.text = viewModel.totalScore
+        if let url = viewModel.photoURL {
+            playerPhoto.af.setImage(withURL: url, placeholderImage: placeholder)
+        } else {
+            playerPhoto.image = placeholder
+        }
     }
 }

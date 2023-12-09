@@ -94,7 +94,8 @@ private extension PlayerListViewController {
 extension PlayerListViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedPlayer = playersList[indexPath.row]
-        presenter?.showPlayerDetail(for: selectedPlayer)
+        let viewModel = PlayerDetailViewModel(player: selectedPlayer.player, statistics: selectedPlayer.statistics)
+        presenter?.showPlayerDetail(for: viewModel)
     }
 }
 
@@ -109,7 +110,8 @@ extension PlayerListViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         let data = playersList[indexPath.row]
-        cell.setData(forData: data)
+        let viewModel = PlayerViewModel(player: data.player, statistic: data.statistics.first)
+        cell.setData(viewModel: viewModel)
         return cell
     }
 }

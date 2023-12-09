@@ -17,7 +17,7 @@ protocol APIManagerProtocol {
 
 final class APIManager: APIManagerProtocol {
     func retrievePlayerData(for season: String, completion: @escaping (Result<PlayerData, Error>) -> Void) {
-        let endpoint = Endpoints.TopScorers.fetch(withApiKey: "20f27ec4admsha34bcfce85e2020p1d593ejsn7800feddab33", season: season)
+        let endpoint = Endpoints.TopScorers.fetch(withApiKey: "API-KEY", season: season)
         AF.request(endpoint.url, method: .get, headers: HTTPHeaders(endpoint.headers))
             .validate()
             .responseDecodable(of: PlayerData.self) { response in

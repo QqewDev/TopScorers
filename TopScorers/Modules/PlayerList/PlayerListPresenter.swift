@@ -7,7 +7,7 @@
 
 protocol PlayerListPresenterProtocol: AnyObject {
     func viewDidLoad()
-    func showPlayerDetail(for player: Response)
+    func showPlayerDetail(for viewModel: PlayerDetailViewModel)
     func seasonEntered(_ season: String)
 }
 
@@ -23,8 +23,8 @@ class PlayerListPresenter {
 }
 
 extension PlayerListPresenter: PlayerListPresenterProtocol {
-    func showPlayerDetail(for player: Response) {
-        router.openDetailView(for: player)
+    func showPlayerDetail(for viewModel: PlayerDetailViewModel) {
+        router.openDetailView(for: viewModel)
     }
 
     func viewDidLoad() {

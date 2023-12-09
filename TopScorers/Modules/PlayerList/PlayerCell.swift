@@ -23,6 +23,7 @@ class PlayerCell: UITableViewCell {
     private lazy var ageLabel =  CustomLabel(textColor: .label, fontName: UIFont.headline())
     private lazy var scoreLabel =  CustomLabel(textColor: .label, fontName: UIFont.headline())
     private lazy var stackView = UIStackView()
+    private lazy var  placeholder = UIImage(systemName: "figure.soccer")
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -62,13 +63,23 @@ class PlayerCell: UITableViewCell {
         }
     }
 
-    func setData(forData data: Response){
-        nameLabel.text = data.player.name
-        ageLabel.text = "Age: \(data.player.age)"
-        scoreLabel.text = "Score: \(data.statistics[0].goals.total)"
-        let url = URL(string: data.player.photo)
-        let placeholder = UIImage(systemName: "figure.soccer")
-        playerPhoto.af.setImage(withURL: url!, placeholderImage: placeholder)
+//    func setData(forData data: Response){
+//        nameLabel.text = data.player.name
+//        ageLabel.text = "Age: \(data.player.age)"
+//        scoreLabel.text = "Score: \(data.statistics[0].goals.total)"
+//        let url = URL(string: data.player.photo)
+//        playerPhoto.af.setImage(withURL: url!, placeholderImage: placeholder)
+//    }
+    func setData(viewModel: PlayerViewModel) {
+        nameLabel.text = viewModel.name
+        ageLabel.text = viewModel.age
+        scoreLabel.text = viewModel.score
+
+        if let url = viewModel.photoURL {
+            playerPhoto.af.setImage(withURL: url, placeholderImage: placeholder)
+        } else {
+            playerPhoto.image = placeholder
+        }
     }
 
     override func prepareForReuse() {

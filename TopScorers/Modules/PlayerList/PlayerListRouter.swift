@@ -6,16 +6,16 @@
 //
 
 protocol PlayerListRouterProtocol {
-    func openDetailView(for player: Response)
+    func openDetailView(for viewModel: PlayerDetailViewModel)
 }
 
 class PlayerListRouter: PlayerListRouterProtocol {
     
     weak var viewController: PlayerListViewController?
 
-    func openDetailView(for player: Response) {
+    func openDetailView(for viewModel: PlayerDetailViewModel) {
       let detailVC = DetailModuleBuilder.build()
-      detailVC.presenter?.setPlayer(player)
+      detailVC.presenter?.setPlayer(viewModel)
 
       viewController?.navigationController?.pushViewController(detailVC, animated: true)
     }
