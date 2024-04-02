@@ -9,7 +9,7 @@
 ## Установка
 1. Клонировать репозиторий
 2. Получить Api-ключ на rapid-api:
-  - Перейти на сайт rapid-api
+  - Перейти на сайт [rapid-api](https://rapidapi.com/api-sports/api/api-football)
   - Найти в списке API-FOOTBALL
   - Выбрать план basic
   - Указать свой X-RapidAPI-Key в ApiManager
