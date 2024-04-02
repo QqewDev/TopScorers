@@ -12,7 +12,7 @@
   - Перейти на сайт [rapid-api](https://rapidapi.com/api-sports/api/api-football)
   - Найти в списке API-FOOTBALL
   - Выбрать план basic
-  - Указать свой X-RapidAPI-Key в ApiManager
+  - Указать свой X-RapidAPI-Key в ApiManager.swift
 3. Запустить проект  
 ## Скриншоты  
 <img src="https://github.com/kistalex/TopScorers/assets/50806791/22058fec-076c-4b22-8ec0-5f5b6575f5c7" width="200" height="450">  
